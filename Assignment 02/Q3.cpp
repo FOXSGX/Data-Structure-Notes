@@ -7,8 +7,27 @@ struct Px{
     int* a;
     bool isZero;
     Px(){
-        int a[10]{};
+        a = new int[10];
+        for(int i = 0; i < 10; i++){
+            a[i] = 0;
+        }
         isZero = false;
+    }
+    Px(const Px& other) {
+        a = new int[10];
+        for (int i = 0; i < 10; i++) {
+            a[i] = other.a[i];
+        }
+        isZero = other.isZero;
+    }
+    Px& operator=(const Px& other) {
+        if (this != &other) {
+            for (int i = 0; i < 10; i++) {
+                a[i] = other.a[i];
+            }
+            isZero = other.isZero;
+        }
+        return *this;
     }
     Px operator*(const Px& other) const {
         Px res;
@@ -27,32 +46,71 @@ struct Px{
         return res;
 
     }
+    ~Px(){
+        delete[] a;
+    }
 };
+    
 
 struct Poly{
-    int* exp;
     int* coef;
     Poly(){
-        exp = new int[500];
-        coef = new int[500];
+        coef = new int[501];
+        for(int i = 0; i <= 500; i++){
+            coef[i] = 0;
+        }
+    }
+    Poly(const Poly& other) {
+        coef = new int[501];
+        for (int i = 0; i <= 500; i++) {
+            coef[i] = other.coef[i];
+        }
+    }
+    Poly& operator=(const Poly& other) {
+        if (this != &other) {
+            for (int i = 0; i <= 500; i++) {
+                coef[i] = other.coef[i];
+            }
+        }
+        return *this;
     }
     Poly mul(const Poly& other){
         Poly res;
-        for(int i = 0; i < 500; i++){
-            res.coef[i] = 0;
-            res.exp[i] = 0;
-        }
-        for(int i = 0; i < 500; i++){
+        for(int i = 0; i <= 500; i++){
             if(coef[i] == 0) continue;
-            for(int j = 0; j < 500; j++){
+            for(int j = 0; i + j <= 500; j++){
                 if(other.coef[j] == 0) continue;
-                int new_exp = exp[i] + other.exp[j];
-                int new_coef = (coef[i] * other.coef[j]) % N;
-                res.coef[new_exp] = (res.coef[new_exp] + new_coef) % N;
-                res.exp[new_exp] = new_exp;
+                res.coef[i+j] = (res.coef[i+j] + (long long)coef[i] * other.coef[j] ) % N;
             }
         }
         return res;
+    }
+    Poly pow(int x){
+        Poly res;
+        res.coef[0] = 1;
+        Poly a;
+        for(int i = 1; i <= 500; i++){
+            a.coef[i] = coef[i];
+        }
+        while (x) {
+            if (x & 1) res = res.mul(a);
+            a = a.mul(a);
+            x >>= 1;
+        }
+        return res;
+    }
+    void print(){
+        bool printed = false;
+        for (int i = 500; i > 0; i--){
+            if (coef[i] == 0) continue;
+            cout << i << ' ' << coef[i] << '\n';
+            printed = true;
+        }
+        if (!printed) cout << 0 << '\n';
+        return;
+    }
+    ~Poly(){
+        delete[] coef;
     }
 };
 int main(){
@@ -74,16 +132,40 @@ int main(){
         int m;
         cin >> m;
         for(int j = 0; j < m; j++){
-            cin >> polys[i].coef[j] >> polys[i].exp[j];
+            int c, e;
+            cin >> c >> e;
+            polys[i].coef[e] = c;
         }
     }
 
     for(int i = 0; i < q; i++){
         int x, y, z;
         cin >> x >> y >> z;
+        x--; y--; z--;
 
         pxs[x] = pxs[y] * pxs[z];
     }
+
+    for(int i = 0; i < k; i++){
+        if (pxs[i].isZero) {
+            cout << 0 << '\n';
+            continue;
+        }
+        Poly poly;
+        poly.coef[0] = 1;
+        for(int j = 0; j < k; j++){
+            if (pxs[i].a[j]==0) continue;
+            poly = poly.mul(polys[j].pow(pxs[i].a[j]));
+        }
+        poly.print();
+    }
+
+    delete[] polys;
+    delete[] pxs;
+
+    return 0;
+
+
 
 
     
