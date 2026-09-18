@@ -23,28 +23,20 @@ struct CirNode{
     int pop(){
         if (val > 0){
             k = val;
-            direct = 0;
-            p = prev;
-            if (prev != nullptr){
-                prev->next = next;
-            }
-            if (next != nullptr){
-                next->prev = prev;
-            }
-            return num;
         }
         else{
             k = -val;
-            direct = 1;
-            p = next;
-            if (prev != nullptr){
-                prev->next = next;
-            }
-            if (next != nullptr){
-                next->prev = prev;
-            }
-            return num;
+            direct = !direct;
         }
+        if (prev != nullptr){
+            prev->next = next;
+        }
+        if (next != nullptr){
+            next->prev = prev;
+        }
+        if (!direct) p = prev;
+        else p = next;
+        return num;
     }
 
 };
@@ -83,7 +75,7 @@ int main(){
             }
         }
 
-        cout << p->pop();
+        cout << p->pop() << " ";
     }
     cout << endl;
     delete p;

@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build active C++ file (MSVC)",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\build-msvc.cmd",
+            "args": [
+                "${file}",
+                "${workspaceFolder}\\build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "detail": "Load the Visual Studio 2022 MSVC environment, then build the active C++ file into build."
+        }
+    ]
+}
