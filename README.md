@@ -1,28 +1,27 @@
 # Data Structure
 
-这个目录用于存放数据结构课程练习代码，目前主要使用 C++ 模板实现基础线性结构。
+这个目录同时保存数据结构课程作业、课后复现练习、原始资料和学习知识库。目前的复现练习主要使用 C++ 模板实现基础线性结构。
 
 ## 目录结构
 
 ```text
 .
-├── Class01 LinearList
-│   ├── include
-│   │   ├── LinearList.h
-│   │   ├── List.h
-│   │   ├── SeqList.h
-│   │   ├── SeqList.tpp
-│   │   ├── CircList.h
-│   │   └── CircList.tpp
-│   └── test
-│       ├── test_SeqList.cpp
-│       └── test_CircList.cpp
-└── CLass02
-    ├── include
-    │   ├── Stack.h
-    │   └── Stack.tpp
-    └── test
-        └── test_Stack.cpp
+├── coursework
+│   └── assignments          # 课堂作业与提交测试
+├── practice                 # 课后自主复现
+│   ├── Class01 LinearList
+│   │   ├── include
+│   │   └── test
+│   └── Class02 Stack&Queue
+│       ├── include
+│       └── test
+├── resources
+│   ├── textbook             # 原始教材 PDF
+│   └── slides               # 课程课件
+└── vault
+    ├── projects             # 项目目标与学习状态
+    ├── notes                # 工作过程记录
+    └── kb                   # 稳定知识、来源笔记、实验与复习
 ```
 
 ## 已实现内容
@@ -36,14 +35,14 @@
 在当前目录执行：
 
 ```bash
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"Class01 LinearList/include" \
-  "Class01 LinearList/test/test_SeqList.cpp" -o /tmp/test_seqlist && /tmp/test_seqlist
+clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class01 LinearList/include" \
+  "practice/Class01 LinearList/test/test_SeqList.cpp" -o /tmp/test_seqlist && /tmp/test_seqlist
 
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"Class01 LinearList/include" \
-  "Class01 LinearList/test/test_CircList.cpp" -o /tmp/test_circlist && /tmp/test_circlist
+clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class01 LinearList/include" \
+  "practice/Class01 LinearList/test/test_CircList.cpp" -o /tmp/test_circlist && /tmp/test_circlist
 
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"CLass02/include" \
-  "CLass02/test/test_Stack.cpp" -o /tmp/test_stack && /tmp/test_stack
+clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class02 Stack&Queue/include" \
+  "practice/Class02 Stack&Queue/test/test_Stack.cpp" -o /tmp/test_stack && /tmp/test_stack
 ```
 
 ## 说明

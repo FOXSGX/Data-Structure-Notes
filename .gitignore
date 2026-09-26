@@ -1,0 +1,16 @@
+.DS_Store
+**/.DS_Store
+
+# Obsidian 的窗口布局属于本机状态，不进入版本控制。
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# 可重新生成的教材提取和页面渲染结果。
+tmp/
+
+# 教材与课件是本地原始资料，避免把大体积或受版权保护的 PDF 提交到 Git。
+resources/**/*.pdf
+
+# 整理过程中保留的可恢复配置归档。
+.archive/
