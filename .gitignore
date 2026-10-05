@@ -9,8 +9,14 @@
 # 可重新生成的教材提取和页面渲染结果。
 tmp/
 
-# 教材与课件是本地原始资料，避免把大体积或受版权保护的 PDF 提交到 Git。
-resources/**/*.pdf
+# 课本、课件和作业原始资料仅保存在本地，不上传到 GitHub。
+/resources/
 
 # 整理过程中保留的可恢复配置归档。
 .archive/
+
+# Visual Studio 本地编译产物。
+*.exe
+*.obj
+*.pdb
+*.ilk

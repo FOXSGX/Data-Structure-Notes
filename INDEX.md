@@ -30,7 +30,7 @@ updated: "2026-09-23"
 | [vault/notes/WORKLOG.md](vault/notes/WORKLOG.md) | 重要学习与项目变更的简短日志 | 新会话需要恢复上下文时 |
 | [coursework/assignments](coursework/assignments) | 课堂作业、提交代码和作业测试 | 完成课程要求或检查迁移能力时 |
 | [practice](practice) | 课后自主复现及其测试 | 学习实现、不变量和边界条件时 |
-| [resources](resources) | 教材、课件等原始资料 | 查证概念和教材约定时 |
+| [resources](resources) | 课本、课件和作业原始资料 | 查证概念、教材约定或查看作业要求时 |
 
 ## 实现与测试
 
@@ -67,6 +67,7 @@ updated: "2026-09-23"
 
 - `resources/textbook/`：本地课程教材 PDF，详见 [vault/kb/SOURCES.md](vault/kb/SOURCES.md)。
 - `resources/slides/`：按章节保存的课程课件。
+- `resources/homework/`：课程作业原始资料；作业实现和测试保存在 `coursework/assignments/`。
 - `tmp/`：教材提取和渲染的临时结果，可重新生成，不作为权威来源。
 
 ## 维护原则
