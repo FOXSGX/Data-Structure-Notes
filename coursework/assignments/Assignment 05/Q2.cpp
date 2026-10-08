@@ -11,7 +11,7 @@ vector<int> buildNEXT(const string& s){
     int k = -1;
 
     while (j+1 < s.size()){
-        if (k == -1 || s[j] == s[k]){
+        if (k == -1 || s[j] == s[k] || s[j] == '.' || s[k] == '.'){
             j++;
             k++;
             next[j] = k;
@@ -23,15 +23,25 @@ vector<int> buildNEXT(const string& s){
     return next;
 }
 
-int kmp_find(const string& main,const string& pattern){
-    if (pattern.empty()) return 0;
+vector<int> kmp_find(const string& main,const string& pattern){
+    if (pattern.empty()) return {};
+
+    vector<int> result;
     vector<int> next = buildNEXT(pattern);
     int i = 0;      //主串指针
     int j = 0;      //模式串指针
 
     while (i < main.size() && j < pattern.size()){
-        if (main[i] == pattern[j]){
-            if (j == pattern.size() -1) return i-j;
+        if (main[i] == pattern[j] || main[i] == '.' || pattern[j] == '.'){
+            if (j == pattern.size() -1) {
+                result.push_back(i - j + 1);
+                if (j == 0) {
+                    i++;
+                }
+                else{
+                    j = next[j];
+                }
+            }
             else{
                 i++;
                 j++;
@@ -44,18 +54,23 @@ int kmp_find(const string& main,const string& pattern){
             j = next[j];
         }
     }
-    return -1;
+    return result;
 }
 
 int main()
 {
+    int n, m;
+    cin >> n >> m;
     string S,P;
     cin >> S >> P;
-    for (int i : buildNEXT(P)){
-        cout << i << " ";
+
+    vector<int> result = kmp_find(S, P);
+
+    cout << result.size() << endl;
+    for (int i = 0; i < result.size(); i++){
+        cout << result[i] << " ";
     }
     cout << endl;
-    cout << kmp_find(S,P) << endl;
 
     return 0;
 }
