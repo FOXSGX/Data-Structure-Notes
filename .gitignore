@@ -15,8 +15,9 @@ tmp/
 # 整理过程中保留的可恢复配置归档。
 .archive/
 
-# Visual Studio 本地编译产物。
+# 本地编译产物。
 *.exe
+a.out
 *.obj
 *.pdb
 *.ilk

@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     'practice/Class01 LinearList/test/a.out'
+relocations:     []
+...

@@ -29,6 +29,7 @@
 - `SeqList<T>`：顺序表，支持插入、删除、查找、输出、拷贝和移动。
 - `CircList<T>`：循环单链表，支持头尾插入、头尾删除、访问头尾元素、拷贝和移动。
 - `Stack<T>`：基于 `std::vector` 的栈，支持入栈、出栈、访问栈顶和容量查询。
+- `BinaryTree`：二叉树，支持按前序序列（`Refvalue` 表示空）建树、前/中/后/层次遍历、清空。
 
 ## 编译测试
 
@@ -43,6 +44,9 @@ clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class01 LinearList/inclu
 
 clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class02 Stack&Queue/include" \
   "practice/Class02 Stack&Queue/test/test_Stack.cpp" -o /tmp/test_stack && /tmp/test_stack
+
+clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Tree" \
+  "practice/Tree/tree.cpp" "practice/Tree/test_tree.cpp" -o /tmp/test_tree && /tmp/test_tree
 ```
 
 ## 说明

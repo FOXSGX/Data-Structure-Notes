@@ -26,6 +26,7 @@ updated: "2026-09-23"
 | [vault/kb/首页.md](vault/kb/首页.md) | 稳定知识库入口 | 在 Obsidian 中学习和复习时 |
 | [vault/projects/data-structure/GOAL.md](vault/projects/data-structure/GOAL.md) | 学习目标、交付物、掌握等级 | 选择学习内容或判断是否学会时 |
 | [vault/projects/data-structure/GAPS.md](vault/projects/data-structure/GAPS.md) | 当前学习缺口和重复错误 | 复习、出题和调整路线时 |
+| [vault/projects/data-structure/章节重点（学长标注）.md](vault/projects/data-structure/章节重点（学长标注）.md) | 学长在课程 PDF 上标红的各章重点清单 | 安排学习顺序、出题和复习优先级时 |
 | [vault/kb/SOURCES.md](vault/kb/SOURCES.md) | 教材及证据层级 | 查证事实或发生冲突时 |
 | [vault/notes/WORKLOG.md](vault/notes/WORKLOG.md) | 重要学习与项目变更的简短日志 | 新会话需要恢复上下文时 |
 | [coursework/assignments](coursework/assignments) | 课堂作业、提交代码和作业测试 | 完成课程要求或检查迁移能力时 |
@@ -55,6 +56,15 @@ updated: "2026-09-23"
   - [测试](<practice/Class02 Stack&Queue/test/test_Stack.cpp>)
 
 当学习 LIFO、不变量、栈序列或相关作业时阅读。
+
+### 树
+
+- `BinaryTree`：二叉树（非模板）。
+  - [接口](<practice/Tree/tree.h>)
+  - [实现](<practice/Tree/tree.cpp>)
+  - [测试](<practice/Tree/test_tree.cpp>)
+
+当学习建树、遍历和树相关算法时阅读。
 
 ### 作业
 
