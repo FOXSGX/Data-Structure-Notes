@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,11 +13,6 @@ struct Node {
     Node* Uchild;
 
     Node(int w, char asc): weight(w), minasc(asc),Nchild(nullptr), Jchild(nullptr), Uchild(nullptr) {}
-
-    bool operator<(const Node& other) const {
-        if (weight != other.weight) return weight < other.weight;
-        return minasc > other.minasc;
-    }
 
 };
 
@@ -37,9 +33,13 @@ string read(Node* root, string& S) {
     }
 
 int main() {
+    //小顶堆
+    auto greater = [](const Node* a, const Node* b) { 
+        if (a->weight != b->weight) return a->weight > b->weight;
+        return a->minasc > b->minasc;
+    };                                                              
 
-    auto cmp = [](const Node* a, const Node* b) { return *a < *b; };
-    priority_queue<Node*, vector<Node*>, decltype(cmp)> pq(cmp);
+    priority_queue<Node*, vector<Node*>, decltype(greater)> pq(greater);
 
     for (int i = 0; i < 27; i++) {
         int weight;
