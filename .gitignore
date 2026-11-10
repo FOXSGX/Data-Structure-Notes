@@ -2,9 +2,9 @@
 **/.DS_Store
 
 # Obsidian 的窗口布局属于本机状态，不进入版本控制。
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache/
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache/
 
 # 可重新生成的教材提取和页面渲染结果。
 tmp/
@@ -12,7 +12,7 @@ tmp/
 # 课本、课件和作业原始资料仅保存在本地，不上传到 GitHub。
 /resources/
 
-# 整理过程中保留的可恢复配置归档。
+# 整理过程中保留的可恢复配置备份。
 .archive/
 
 # 本地编译产物。

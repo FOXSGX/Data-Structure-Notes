@@ -1,0 +1,14 @@
+{
+  "newFileLocation": "folder",
+  "newFileFolderPath": "kb/概念笔记",
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "alwaysUpdateLinks": true,
+  "propertiesInDocument": "hidden",
+  "userIgnoreFilters": [
+    "notes/",
+    "projects/",
+    "kb/首页.md",
+    "kb/主题索引/"
+  ]
+}

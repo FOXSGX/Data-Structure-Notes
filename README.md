@@ -1,60 +1,32 @@
 # Data Structure
 
-这个目录同时保存数据结构课程作业、课后复现练习、原始资料和学习知识库。目前的复现练习主要使用 C++ 模板实现基础线性结构。
+数据结构课程：课堂作业、课后复现、原始资料与学习知识库。
 
-## 目录结构
+## 目录
 
-```text
-.
-├── coursework
-│   └── assignments          # 课堂作业与提交测试
-├── practice                 # 课后自主复现
-│   ├── Class01 LinearList
-│   │   ├── include
-│   │   └── test
-│   └── Class02 Stack&Queue
-│       ├── include
-│       └── test
-├── resources
-│   ├── textbook             # 原始教材 PDF
-│   └── slides               # 课程课件
-└── vault
-    ├── projects             # 项目目标与学习状态
-    ├── notes                # 工作过程记录
-    └── kb                   # 稳定知识、来源笔记、实验与复习
-```
+| 路径 | 用途 |
+|---|---|
+| `coursework/assignments/` | 课堂作业与提交测试 |
+| `practice/` | 课后自主复现（C++） |
+| `resources/` | 教材、课件、试卷原件，不复制进知识库 |
+| `vault/` | 事实记忆层，同时是唯一的 Obsidian Vault |
 
-## 已实现内容
+## 已实现
 
-- `SeqList<T>`：顺序表，支持插入、删除、查找、输出、拷贝和移动。
-- `CircList<T>`：循环单链表，支持头尾插入、头尾删除、访问头尾元素、拷贝和移动。
-- `Stack<T>`：基于 `std::vector` 的栈，支持入栈、出栈、访问栈顶和容量查询。
-- `BinaryTree`：二叉树，支持按前序序列（`Refvalue` 表示空）建树、前/中/后/层次遍历、清空。
+- `SeqList`：顺序表；`CircList`：循环单链表；`Stack`：基于 `std::vector` 的栈。
+- `BinaryTree`：二叉树，前序建树（`Refvalue` 表示空）、前/中/后/层次遍历、清空。
+
+模板类实现在 `.tpp`，由对应 `.h` 包含，使用时只需 `#include` 头文件。
 
 ## 编译测试
 
-在当前目录执行：
-
 ```bash
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class01 LinearList/include" \
-  "practice/Class01 LinearList/test/test_SeqList.cpp" -o /tmp/test_seqlist && /tmp/test_seqlist
-
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class01 LinearList/include" \
-  "practice/Class01 LinearList/test/test_CircList.cpp" -o /tmp/test_circlist && /tmp/test_circlist
-
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Class02 Stack&Queue/include" \
-  "practice/Class02 Stack&Queue/test/test_Stack.cpp" -o /tmp/test_stack && /tmp/test_stack
-
-clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Tree" \
-  "practice/Tree/tree.cpp" "practice/Tree/test_tree.cpp" -o /tmp/test_tree && /tmp/test_tree
+./run.sh "practice/Tree/test_tree.cpp"      # 参数为任意 test_*.cpp
 ```
 
-## 说明
+手动编译示例（与 `run.sh` 等效）：
 
-模板类的实现放在 `.tpp` 文件中，并由对应的 `.h` 文件包含。因此使用时只需要包含头文件，例如：
-
-```cpp
-#include "SeqList.h"
-#include "CircList.h"
-#include "Stack.h"
+```bash
+clang++ -std=c++17 -Wall -Wextra -Wpedantic -I"practice/Tree" \
+  "practice/Tree/tree.cpp" "practice/Tree/test_tree.cpp" -o /tmp/test_tree && /tmp/test_tree
 ```

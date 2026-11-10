@@ -1,87 +1,44 @@
 ---
 title: 数据结构项目索引
-type: project-index
-updated: "2026-09-23"
+updated: "2026-11-10"
 ---
 
-# 数据结构项目索引
+# 数据结构｜索引
 
-这是人和 AI 进入项目时共同阅读的入口。它只负责说明“资料在哪里、包含什么、什么时候读”，不复制正文。
+唯一入口：先读本页，再按任务只读一个文件，不要批量加载 `vault/`。
 
-## 建议阅读顺序
+## 当前状态
 
-1. [TODOS.md](TODOS.md)：当前学习目标和下一步。
-2. [vault/projects/data-structure/GOAL.md](vault/projects/data-structure/GOAL.md)：成功标准和掌握等级。
-3. [数据结构主题索引](vault/kb/20-主题索引/数据结构.md)：概念之间的关系。
-4. 当前概念笔记及其来源、代码、测试和实验。
-5. [vault/projects/data-structure/GAPS.md](vault/projects/data-structure/GAPS.md)：复习前检查是否有重复错误。
+- 主线：第五章「树与二叉树」，从第 1 部分「树和森林的概念」开始（2026-10-22 起）；第 5、7、8 部分讲后必须补独立验证。
+- 欠账：第四章广义表的表示、递归操作、共享与建表已讲原理，未实现未验收；字符串完整接口、`nextval` 留待复习。
+- 复习：[GAPS.md](vault/projects/data-structure/GAPS.md) 三项字符串相关缺口；[字符串](vault/kb/概念笔记/字符串.md)、[KMP](vault/kb/概念笔记/KMP.md) 的掌握验证未完成。
+- 2026-11-10：目录与 Obsidian 配置整理，详见[工作日志](vault/notes/WORKLOG.md)。
 
-## 项目地图
+## 待办
 
-| 位置 | 内容 | 什么时候读 |
-|---|---|---|
-| [README.md](README.md) | 当前实现概览和编译命令 | 初次进入项目，或需要运行测试时 |
-| [TODOS.md](TODOS.md) | 当前任务、待确认事项和完成记录 | 每次学习开始与结束时 |
-| [vault/INDEX.md](vault/INDEX.md) | 事实记忆层的入口与分区说明 | 需要查项目状态、日志或知识时 |
-| [vault/kb/首页.md](vault/kb/首页.md) | 稳定知识库入口 | 在 Obsidian 中学习和复习时 |
-| [vault/projects/data-structure/GOAL.md](vault/projects/data-structure/GOAL.md) | 学习目标、交付物、掌握等级 | 选择学习内容或判断是否学会时 |
-| [vault/projects/data-structure/GAPS.md](vault/projects/data-structure/GAPS.md) | 当前学习缺口和重复错误 | 复习、出题和调整路线时 |
-| [vault/projects/data-structure/章节重点（学长标注）.md](vault/projects/data-structure/章节重点（学长标注）.md) | 学长在课程 PDF 上标红的各章重点清单 | 安排学习顺序、出题和复习优先级时 |
-| [vault/kb/SOURCES.md](vault/kb/SOURCES.md) | 教材及证据层级 | 查证事实或发生冲突时 |
-| [vault/notes/WORKLOG.md](vault/notes/WORKLOG.md) | 重要学习与项目变更的简短日志 | 新会话需要恢复上下文时 |
-| [coursework/assignments](coursework/assignments) | 课堂作业、提交代码和作业测试 | 完成课程要求或检查迁移能力时 |
-| [practice](practice) | 课后自主复现及其测试 | 学习实现、不变量和边界条件时 |
-| [resources](resources) | 课本、课件和作业原始资料 | 查证概念、教材约定或查看作业要求时 |
+- [ ] 讲第五章第 1 部分：树和森林的递归定义、深度与高度、FirstChild + NextSibling，讲完写概念笔记。
+- [ ] 第五章第 5、7、8 部分（线索化、堆、Huffman）讲后补闭卷复述 + 迁移题。
+- [ ] 复习 `GAPS.md` 三项缺口；补讲 `nextval` 与字符串完整接口。
+- [ ] 可选：为 `SeqList`、`CircList`、`Stack` 补概念笔记（链接实现与测试）。
 
-## 实现与测试
+## 读什么
 
-### 线性表
+| 想知道 | 读 |
+|---|---|
+| 成功标准、掌握等级、教学节奏 | [GOAL.md](vault/projects/data-structure/GOAL.md) |
+| 重复错误与知识缺口 | [GAPS.md](vault/projects/data-structure/GAPS.md) |
+| 第五章进度与检验点 | [第五章教学计划](vault/projects/data-structure/第五章教学计划.md) |
+| 第四章遗留 | [第四章教学计划](vault/projects/data-structure/第四章教学计划.md)、[广义表教学计划](vault/projects/data-structure/广义表教学计划.md) |
+| 全课程红字重点 | [章节重点（学长标注）](vault/projects/data-structure/章节重点（学长标注）.md) |
+| 概念 | [知识首页](vault/kb/首页.md)，再按需读 `vault/kb/概念笔记/` 的一篇 |
+| 来源与证据优先级 | [SOURCES.md](vault/kb/SOURCES.md) |
+| 实现与编译测试 | [README.md](README.md) |
+| 作业 / 课后复现 / 原始资料 | `coursework/assignments/`、`practice/`、`resources/` |
+| 历史变更 | [WORKLOG](vault/notes/WORKLOG.md) |
 
-- `SeqList<T>`：顺序存储的线性表。
-  - [接口](<practice/Class01 LinearList/include/SeqList.h>)
-  - [实现](<practice/Class01 LinearList/include/SeqList.tpp>)
-  - [测试](<practice/Class01 LinearList/test/test_SeqList.cpp>)
-- `CircList<T>`：循环单链表。
-  - [接口](<practice/Class01 LinearList/include/CircList.h>)
-  - [实现](<practice/Class01 LinearList/include/CircList.tpp>)
-  - [测试](<practice/Class01 LinearList/test/test_CircList.cpp>)
+## 写入规则
 
-当学习“表示方式、不变量、插入删除和复杂度比较”时阅读。
-
-### 栈
-
-- `Stack<T>`：基于 `std::vector` 的栈。
-  - [接口](<practice/Class02 Stack&Queue/include/Stack.h>)
-  - [实现](<practice/Class02 Stack&Queue/include/Stack.tpp>)
-  - [测试](<practice/Class02 Stack&Queue/test/test_Stack.cpp>)
-
-当学习 LIFO、不变量、栈序列或相关作业时阅读。
-
-### 树
-
-- `BinaryTree`：二叉树（非模板）。
-  - [接口](<practice/Tree/tree.h>)
-  - [实现](<practice/Tree/tree.cpp>)
-  - [测试](<practice/Tree/test_tree.cpp>)
-
-当学习建树、遍历和树相关算法时阅读。
-
-### 作业
-
-- `coursework/assignments/Assignment 01`、`Assignment 02`：课程早期练习。
-- `coursework/assignments/Assignment 03`：包含实现及系统化输入输出测试；先读[测试说明](<coursework/assignments/Assignment 03/tests/README.md>)。
-
-作业是迁移能力和边界意识的证据，不替代概念解释。
-
-## 来源
-
-- `resources/textbook/`：本地课程教材 PDF，详见 [vault/kb/SOURCES.md](vault/kb/SOURCES.md)。
-- `resources/slides/`：按章节保存的课程课件。
-- `resources/homework/`：课程作业原始资料；作业实现和测试保存在 `coursework/assignments/`。
-- `tmp/`：教材提取和渲染的临时结果，可重新生成，不作为权威来源。
-
-## 维护原则
-
-- 新增重要资料时，为它补充“内容”和“什么时候读”。
-- 当前状态写入 `TODOS.md` 和 `vault/projects/`，稳定知识只写入 `vault/kb/`，不要把聊天记录当长期记忆。
-- 只有真实重复出现的工作流，才进一步固化为 Skill。
+- 目标、状态、缺口、教学计划 → `vault/projects/data-structure/`。
+- 稳定知识 → `vault/kb/概念笔记/`；来源登记 → `vault/kb/SOURCES.md`。
+- 过程、实验、复习记录 → `vault/notes/`。
+- Obsidian 只打开 `vault/`（唯一 Vault）；`resources/`、`tmp/` 和代码不复制进知识库。
